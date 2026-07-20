@@ -1,0 +1,371 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  color: #1d2d44;
+  background: #f8fafc;
+
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --primary-text: #1d2d44;
+  --secondary-text: #64748b;
+  --border: #e2e8f0;
+  --primary-blue: #1d4ed8;
+  --mint-teal: #81b29a;
+  --coral: #e07a5f;
+  --wheat-gold: #d4a373;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--primary-text);
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 3rem max(2rem, 6vw);
+  background: var(--primary-text);
+  color: white;
+}
+
+.dashboard-header h1 {
+  max-width: 760px;
+  margin: 0.25rem 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.05;
+}
+
+.eyebrow,
+.card-label {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: #cbd5e1;
+}
+
+.header-description {
+  max-width: 680px;
+  margin: 0;
+  color: #dbe4ee;
+  line-height: 1.6;
+}
+
+.language-button {
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0.65rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.language-button:hover {
+  background: white;
+  color: var(--primary-text);
+}
+
+.dashboard {
+  width: min(1180px, calc(100% - 2rem));
+  margin: -1.5rem auto 0;
+  padding-bottom: 3rem;
+}
+
+.controls-card,
+.chart-card,
+.insights-card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: 0 12px 30px rgba(29, 45, 68, 0.08);
+}
+
+.controls-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.control-group {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.control-group label {
+  color: var(--primary-text);
+  font-weight: 700;
+}
+
+.control-group select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  padding: 0.8rem 0.9rem;
+  background: white;
+  color: var(--primary-text);
+}
+
+.control-group select:focus {
+  outline: 3px solid rgba(29, 78, 216, 0.15);
+  border-color: var(--primary-blue);
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.chart-card {
+  min-width: 0;
+  padding: 1.5rem;
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.card-heading h2,
+.insights-card h2 {
+  margin: 0.3rem 0 0;
+  font-size: 1.35rem;
+}
+
+.card-label {
+  color: var(--coral);
+}
+
+.card-description {
+  min-height: 3rem;
+  margin: 0.75rem 0 1.25rem;
+  color: var(--secondary-text);
+  line-height: 1.55;
+}
+
+.status-badge {
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 0.4rem 0.65rem;
+  background: rgba(129, 178, 154, 0.18);
+  color: #365f4f;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.chart-placeholder {
+  display: grid;
+  min-height: 320px;
+  place-items: center;
+  border: 2px dashed var(--border);
+  border-radius: 0.8rem;
+  background: linear-gradient(
+    135deg,
+    rgba(29, 78, 216, 0.035),
+    rgba(129, 178, 154, 0.08)
+  );
+  color: var(--secondary-text);
+  font-weight: 700;
+}
+
+.insights-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border-left: 5px solid var(--wheat-gold);
+}
+
+.insights-card p:last-child {
+  margin: 0;
+  color: var(--secondary-text);
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .dashboard-header,
+  .card-heading {
+    flex-direction: column;
+  }
+
+  .controls-card,
+  .chart-grid,
+  .insights-card {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .dashboard {
+    width: min(100% - 1rem, 1180px);
+  }
+
+    .dashboard-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-copyright {
+    grid-column: auto;
+  }
+
+    .language-button {
+    align-self: flex-start;
+  }
+
+  .chart-container {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  .data-notice {
+    padding: 1rem;
+  }
+}
+
+.chart-container {
+  width: 100%;
+  min-height: 320px;
+  height: 320px;
+}
+
+.dashboard-header > div {
+  min-width: 0;
+}
+
+.language-button {
+  min-width: 6.5rem;
+  text-align: center;
+}
+
+.data-notice {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(212, 163, 115, 0.55);
+  border-radius: 1rem;
+  background: rgba(212, 163, 115, 0.1);
+}
+
+.data-notice-icon {
+  display: grid;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--wheat-gold);
+  color: var(--primary-text);
+  font-weight: 900;
+}
+
+.data-notice-label {
+  margin: 0;
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.data-notice h2 {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 1rem;
+}
+
+.data-notice p:last-child {
+  margin: 0;
+  color: var(--secondary-text);
+  line-height: 1.55;
+}
+
+
+.dashboard-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  padding: 1.5rem 0 0.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--secondary-text);
+}
+
+.footer-section {
+  min-width: 0;
+}
+
+.footer-label {
+  margin: 0 0 0.35rem;
+  color: var(--primary-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-section p:last-child {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.footer-copyright {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.language-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 3px;
+}
+
+.language-button:focus:not(:focus-visible) {
+  outline: none;
+}
+.control-group select:hover {
+  border-color: #94a3b8;
+}
+
+.dashboard-header h1,
+.card-heading h2,
+.insights-card h2,
+.data-notice h2,
+.footer-section p {
+  overflow-wrap: anywhere;
+}
