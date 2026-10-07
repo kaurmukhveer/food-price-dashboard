@@ -1,16 +1,30 @@
-# React + Vite
+# Bilingual Food Price Dashboard 🇨🇦
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An interactive English/French dashboard showing grocery price trends, built with React and Recharts for SEG 3125 (Analysis and Design of User Interfaces) at the University of Ottawa.
 
-Currently, two official plugins are available:
+**Live demo:** https://food-price-dashboard.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> The dataset is **synthetic** and made for learning (Tomatoes, Apples, Broccoli, Carrots; January–June 2026). It is not real Statistics Canada data.
 
-## React Compiler
+## Features
+- **Language toggle (EN/FR):** switches every piece of UI text, including chart titles, insight cards, controls, product and month names, the footer, the browser tab title, and the HTML `lang` attribute
+- **Line chart:** monthly price trend for the selected product
+- **Bar chart:** product-by-product comparison for the selected month
+- **Product and month selectors:** update both charts and the insight text instantly, with no page reload
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Design decisions
+- **Chart choice:** a line chart for change over time; a bar chart for comparing categories, because bar heights are easier to compare than points on a line
+- **"3Cs" framework:**
+  - *Context:* every chart has a title, subtitle, unit badge (CAD/kg), and insight card
+  - *Clutter-free:* minimal gridlines and a limited palette
+  - *Contrast:* a dark hero section, distinct chart colours, and readable text
+- **Localization challenge:** French strings run longer than English, so buttons and spacing were resized to stop headings and labels from wrapping or overflowing
 
-## Expanding the Oxlint configuration
+## Tech stack
+React · Vite · Recharts · JavaScript · CSS · deployed on Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Run locally
+```bash
+npm install
+npm run dev
+```
